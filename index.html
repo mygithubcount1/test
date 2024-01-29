@@ -20,3 +20,20 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
 })
 
 </script>
+<pre id="text"></pre>
+<script type="text/javascript">
+    $.ajax({
+        url: "test.txt",
+        type: "get",
+        dataType: "text",
+        success: function (data) {
+            $("#text").text(data);
+        },
+        error: function (jqXHR, status, thrown) {
+            alert(thrown);
+        }
+    });
+</script>
+
+
+
