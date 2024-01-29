@@ -1,25 +1,3 @@
-<!-- <input type="file" id="file">
-<div id="text"></div>
-<script>
-  let reader = null; // 声明reader变量方便后面使用
-
-const fileNode = document.querySelector('#file'); // 获取input标签
-
-fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事件监听，当选择文件以后触发
-  if (window.FileReader) { // 判断浏览器中有没有FileReader，毕竟现在不是所有浏览器都有FileReader
-    reader = new FileReader(); // 实例化FileReader
-    reader.onload = (event) => { // 设置读取成功以后执行的方法
-      document.querySelector('#text').innerHTML = event.target.result; // 前面说过，成功返回的数据再result属性中，然后将拿回来的文本添加到指定标签中
-    }
-  } else { // 没有FileReader的弹出警告然后返回
-    alert('你的先浏览器没有FileReader，不能这么干！');
-    return;
-  }
-  const file = e.target.files[0]; // 拿到选择的文件信息
-  reader.readAsText(file); // 将文件信息转成文本，默认是UTF-8格式，这个就是转成功后执行 reader.onload 方法
-})
-
-</script> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,22 +7,12 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
 </head>
 <body>
 
-  <!-- <iframe src="test.txt" name=iframe1></iframe>
-  <div id=div1>hiai</div>
 
-  <script>
-  //在iframe1中已经显示有TXT文本的内容，下面代码是把TXT中的内容中的HTML标记取消，只取得文本
-  var txtval=ifram1.body.innerText;
-  //把文本显示在div1中
-  div1.innerHTML=txtval;
-  </script> -->
-
-
-<!-- <pre id="text"></pre>
+<pre id="text"></pre>
 <div id="text"></div>
 <script type="text/javascript">
     $.ajax({
-        url: "test02.txt",
+        url: "https://hub.gitmirror.com/https://github.com/mygithubcount1/test/blob/main/test02.txt",
         type: "get",
         dataType: "text",
         success: function (data) {
@@ -54,48 +22,7 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
             alert(thrown);
         }
     });
-</script> -->
-
-
-<input id="input" type="file">
-<script>
-  const input = document.querySelector('input[type=file]')
-
-  input.addEventListener('change', ()=>{
-    const reader = new FileReader()
-    reader.readAsText(input.files[0],'utf8') // input.files[0]为第一个文件
-    reader.onload = ()=>{
-      document.body.innerHTML += reader.result  // reader.result为获取结果
-    }
-  }, false)
-  </script>
-
-
-
-
-<!-- <script>
-  function show()
-  {
-      var reader = new FileReader();
-      reader.onload = function() 
-      {
-          //alert(this.result)
-          story.value=this.result
-      }
-      var f = document.getElementById("filePicker").files[0];
-      reader.readAsText(f);
-      // reader.readAsText("test02");
-  }
-  </script>
-   
-  <input type="file" name="file" id="filePicker" onchange="show()"  />
-  <br>
-   
-  <textarea id="story" name="story" rows="15" cols="60">
-  </textarea> -->
-
-
-
+</script>
 
 </body>
 </html>
