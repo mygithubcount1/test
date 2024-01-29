@@ -1,4 +1,4 @@
-<input type="file" id="file">
+<!-- <input type="file" id="file">
 <div id="text"></div>
 <script>
   let reader = null; // 声明reader变量方便后面使用
@@ -19,11 +19,20 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
   reader.readAsText(file); // 将文件信息转成文本，默认是UTF-8格式，这个就是转成功后执行 reader.onload 方法
 })
 
-</script>
+</script> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
 <pre id="text"></pre>
+<div id="text"></div>
 <script type="text/javascript">
     $.ajax({
-        url: "test.txt",
+        url: "test02.txt",
         type: "get",
         dataType: "text",
         success: function (data) {
@@ -34,6 +43,7 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
         }
     });
 </script>
-
+</body>
+</html>
 
 
