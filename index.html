@@ -28,7 +28,19 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-<pre id="text"></pre>
+
+  <!-- <iframe src="test.txt" name=iframe1></iframe>
+  <div id=div1>hiai</div>
+
+  <script>
+  //在iframe1中已经显示有TXT文本的内容，下面代码是把TXT中的内容中的HTML标记取消，只取得文本
+  var txtval=ifram1.body.innerText;
+  //把文本显示在div1中
+  div1.innerHTML=txtval;
+  </script> -->
+
+
+<!-- <pre id="text"></pre>
 <div id="text"></div>
 <script type="text/javascript">
     $.ajax({
@@ -42,7 +54,49 @@ fileNode.addEventListener('change', (e) => { // 为获取的input标签添加事
             alert(thrown);
         }
     });
-</script>
+</script> -->
+
+
+<input id="input" type="file">
+<script>
+  const input = document.querySelector('input[type=file]')
+
+  input.addEventListener('change', ()=>{
+    const reader = new FileReader()
+    reader.readAsText(input.files[0],'utf8') // input.files[0]为第一个文件
+    reader.onload = ()=>{
+      document.body.innerHTML += reader.result  // reader.result为获取结果
+    }
+  }, false)
+  </script>
+
+
+
+
+<!-- <script>
+  function show()
+  {
+      var reader = new FileReader();
+      reader.onload = function() 
+      {
+          //alert(this.result)
+          story.value=this.result
+      }
+      var f = document.getElementById("filePicker").files[0];
+      reader.readAsText(f);
+      // reader.readAsText("test02");
+  }
+  </script>
+   
+  <input type="file" name="file" id="filePicker" onchange="show()"  />
+  <br>
+   
+  <textarea id="story" name="story" rows="15" cols="60">
+  </textarea> -->
+
+
+
+
 </body>
 </html>
 
