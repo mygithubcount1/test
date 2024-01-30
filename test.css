@@ -6,6 +6,7 @@ body{
     align-items: center;
     /* margin: 0; */
     /* height: 100vh; */
+
     background-color:#fff;
     /* border: 1px solid #ff0048; */
 }
@@ -17,6 +18,9 @@ body{
 }
 .color999{
     color: #999;
+}
+a{
+    text-decoration: none;
 }
 
 .test1{
@@ -148,18 +152,113 @@ body{
     width: 224px;
     height: 283px;
 }
+#text{
+    border: 1px solid #00a4ff;
+}
+#id1{
+    border: 1px solid #00a4ff;
+}
 
 .test3{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 800px;
+    /* justify-content: center; */
+    width: 100%;
+    align-items: center;
+    background:rgb(243, 243, 243);
+    /* width: 800px; */
     /* flex: 1; */
-    border: 1px solid #00a4ff;
+    /* border: 1px solid #00a4ff; */
     height: 565.4px;
     /* padding: 0 10px; */
 
     /* line-height: 42px; */
     /* font-size: 18px; */
     /* color: #050505; */
+}
+.test31{
+    width: 1200px;
+    height: 565.4px;
+}
+.test311{
+    width: 1200px;
+    height: 114px;
+}
+.test312{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    width: 1200px;
+    height: 50px;
+}
+
+.test3121{
+    font-size: 15px;
+    width: 30px;
+    height: 22.5px;
+    margin: 0 24px;
+}
+
+.test3121:hover{
+    color: #31c27c;
+    font-size: 15px;
+    width: 30px;
+    height: 22.5px;
+    margin: 0 24px;
+}
+.test313{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    width: 1230px;
+    height: 332.4px;
+}
+.test3131{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 1230px;
+    height: 332.4px;
+    padding: 0;
+}
+
+.test31311{
+    width: 410px;
+    /* flex: 1; */
+    height: 110.8px;
+    background-color: #fff;
+    list-style-type: none;
+    /* border: .1px solid #00a4ff; */
+    /* margin: 0 24px; */
+}
+
+.test313111{
+    display: flex;
+    flex-direction: row;
+    width: 380px;
+    height: 98.8px;
+    padding-top: 12px;
+    border-top: 1px solid #f2f2f2;
+}
+
+
+.test313111 img{  
+
+    cursor: pointer;  
+    /* transition: all .5s; */
+    transition:transform 0.3s ease ;
+    
+}  
+.test313111 img:hover{  
+    transform: scale(1.2);  
+    background-image: url("https://y.qq.com/ryqq/static/media/cover_play@2x.53a26efb.png?max_age=2592000");
+} 
+
+.test41{
+    width: 1200px;
+    background-color: #fff;
 }
