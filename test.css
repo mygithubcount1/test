@@ -231,7 +231,7 @@ a{
     /* flex: 1; */
     height: 110.8px;
     background-color: #fff;
-    list-style-type: none;
+    list-style: none;
     /* border: .1px solid #00a4ff; */
     /* margin: 0 24px; */
 }
