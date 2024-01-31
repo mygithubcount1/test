@@ -301,6 +301,14 @@
         <div id="text1"></div>
         <pre id="id1" ></pre>
       </div> 
+      <div class="tianjia" style="width: 1200px;height: 50px;border: #31c27c;">
+        <input type="text" id="input">
+        <input type="button" value="点击获取input输入框中的值" onclick="getInputVal()">
+        <input type="button" value="追加到文件" onclick="appendToFile()">
+        <h3>追加后的结果</h3>
+        <pre id="output1" ></pre>
+        <!-- <p id="output1"></p> -->
+      </div>
     </div>
 
     <script type="text/javascript">
@@ -319,6 +327,78 @@
                 alert(thrown);
             }
         });
+      function getInputVal(){
+        let input=document.getElementById("input")
+        let tmp=input.value
+        console.log(tmp)
+      }
+
+
+      function appendToFile() {
+        const username = 'mygithubcount1';
+        const repo = 'test';
+        const filePath = 'test.txt';
+        const accessToken = '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';
+        //const content = 'Hello, World!'; // 要写入的内容
+        //const username = 'your-username';
+        //const repo = 'your-repo';
+        //const filePath = 'path/to/your/file.txt';
+        //const accessToken = 'your-personal-access-token';
+        // const newContent = 'New content to append'; // 新的追加内容
+        let newContent = 'New content to append'; // 新的追加内容
+
+        fetch(`https://api.github.com/repos/${username}/${repo}/contents/${filePath}`, {
+          method: 'GET',
+          headers: {
+            Authorization: `token ${accessToken}`,
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            console.log(1);
+            const sha = data.sha;
+
+            const content = decodeURIComponent(escape(atob(data.content))); // 解码并处理中文字符
+            // const content = atob(data.content); // 将内容进行 base64 解码
+            console.log(content);
+            console.log(2);
+
+            let input=document.getElementById("input")
+            let newContent=input.value
+            console.log(newContent)
+            console.log(3);
+            // 合并原始内容和新的追加内容
+            const mergedContent = content + '\n' + newContent;
+            console.log(mergedContent);
+            console.log(4);
+
+            output=window.document.getElementById("output1")
+            output.innerHTML=mergedContent
+            console.log(5)
+
+            // 更新文件并传递合并后的内容
+            fetch(`https://api.github.com/repos/${username}/${repo}/contents/${filePath}`, {
+              method: 'PUT',
+              headers: {
+                Authorization: `token ${accessToken}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                message: 'Append to file',
+                content: btoa(unescape(encodeURIComponent(mergedContent))), // 编码并处理中文字符
+                // content: btoa(mergedContent), // 将内容进行 base64 编码
+                sha: sha, // 使用原始文件的 SHA 值
+              }),
+            })
+              .then((response) => response.json())
+              .then((data) => console.log(data))
+              .catch((error) => console.error('Error:', error));
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+  
     </script>
 </body>
 </html>
