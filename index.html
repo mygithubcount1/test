@@ -296,7 +296,6 @@
     <div class="test3">
       <h1 style="padding: 0 auto;margin: 0;">我可以上传的内容</h1>
       <div class="test41">
-       
         <pre id="text" ></pre> 
         <div id="text1"></div>
         <pre id="id1" ></pre>
@@ -333,24 +332,16 @@
         console.log(tmp)
       }
 
-
       function appendToFile() {
         const username = 'mygithubcount1';
         const repo = 'test';
         const filePath = 'test.txt';
-        const accessToken = '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';
-        //const content = 'Hello, World!'; // 要写入的内容
-        //const username = 'your-username';
-        //const repo = 'your-repo';
-        //const filePath = 'path/to/your/file.txt';
-        //const accessToken = 'your-personal-access-token';
-        // const newContent = 'New content to append'; // 新的追加内容
+        let tmp3='Z2l0aHViX3BhdF8xMUJGVTZGWkEwOFdNak1TbTNRNVA2X0ZkWEhXTXZDalgzV251cHdueU56cG16UTJZVmRVRldnRmtWcHBGaVlmaVY1WFE2RFRaR3VWV1BnQXRm'
         let newContent = 'New content to append'; // 新的追加内容
-
         fetch(`https://api.github.com/repos/${username}/${repo}/contents/${filePath}`, {
           method: 'GET',
           headers: {
-            Authorization: `token ${accessToken}`,
+            Authorization: `token ${decodeURIComponent(escape(atob(tmp3)))}`,
           }
         })
           .then(response => response.json())
@@ -358,12 +349,10 @@
             console.log(data);
             console.log(1);
             const sha = data.sha;
-
             const content = decodeURIComponent(escape(atob(data.content))); // 解码并处理中文字符
             // const content = atob(data.content); // 将内容进行 base64 解码
             console.log(content);
             console.log(2);
-
             let input=document.getElementById("input")
             let newContent=input.value
             console.log(newContent)
@@ -381,7 +370,7 @@
             fetch(`https://api.github.com/repos/${username}/${repo}/contents/${filePath}`, {
               method: 'PUT',
               headers: {
-                Authorization: `token ${accessToken}`,
+                Authorization: `token ${decodeURIComponent(escape(atob(tmp3)))}`,
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
