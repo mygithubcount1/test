@@ -13,3 +13,15 @@
     你可以将元岛视为无边界公司，可以自行或和他人合作进行商业项目。
 
     你也可以将元岛视为社区，这里都是一些团结友爱、热爱学习和积极向上的小伙伴，认识大家扩展你的生活边界。
+
+
+    JavaScript 输出
+JavaScript 没有任何打印或者输出的函数。
+
+JavaScript 显示数据
+JavaScript 可以通过不同的方式来输出数据：
+
+使用 window.alert() 弹出警告框。
+使用 document.write() 方法将内容写到 HTML 文档中。
+使用 innerHTML 写入到 HTML 元素。
+使用 console.log() 写入到浏览器的控制台。
